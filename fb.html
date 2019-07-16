@@ -12,15 +12,15 @@
     console.log(response);
     let loginin = document.querySelector("#loginin");
     let loginok = document.querySelector("#loginok");
-    loginin.style.dispaly = "none";
-    loginok.style.dispaly = "none";
+    loginin.style.display = "none";
+    loginok.style.display = "none";
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
-      loginok.style.dispaly = "block";
+      loginok.style.display = "block";
     } else {
       // The person is not logged into your app or we are unable to tell.
-      loginin.style.dispaly = "block";
+      loginin.style.display = "block";
     }
   }
 
@@ -72,6 +72,3 @@
 <div id="loginok" style="display: none">歡迎登入</div>
 
 
-
-
-</body>
