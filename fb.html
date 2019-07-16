@@ -65,7 +65,7 @@
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
-    FB.api('/me?fields=id,email,name', function(response) {
+    fetch('/me?fields=id,email,name').then(function(response) {
       console.log('Successful login for: ' + response.name);
       let loginok = document.querySelector('#loginok');
       loginok.innerHTML ="使用者的名字:"+response.name+"</br>"+"使用者的ID:"+response.id+"</br>"+"使用者的email:"+response.email;
