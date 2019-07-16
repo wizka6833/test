@@ -28,7 +28,7 @@
       FB.login(function(response){
           statusChangeCallbak(response);
           },{scope:"email"}
-      )
+      );
   };
 
   // This function is called when someone finishes with the Login
@@ -47,9 +47,9 @@
 
     
 
-    /*FB.getLoginStatus(function(response) {
+    FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
-    });*/
+    });
 
   };
 
@@ -75,7 +75,7 @@
 
 <h3>Facebook Login</h3>
 <div id="loginin" style="display: none">
-<button onclick="login();">;登入</button>
+<button onclick="login()">;登入</button>
 </div>
 <div id="loginok" style="display: none">歡迎登入</div>
 
