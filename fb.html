@@ -67,7 +67,7 @@
     FB.api('/me?fields=id,email,name,gender,photos',function(response) {
       console.log('Successful login for: ' + response.name);
       let loginok = document.querySelector('#loginok');
-      loginok.innerHTML ="使用者的名字:"+response.name+"</br>"+"使用者的ID:"+response.id+"</br>"+"使用者的email:"+response.email+"</br>"+"使用者的性別:"+response.gender+"</br>"+"<img src = 'https://graph.facebok.com/"+response.id+"/picture' />";
+      loginok.innerHTML ="使用者的名字:"+response.name+"</br>"+"使用者的ID:"+response.id+"</br>"+"使用者的email:"+response.email+"</br>"+"使用者的性別:"+response.gender+"</br>"+"<img src = 'https://graph.facebook.com/"+response.id+"/picture' />";
       console.log(response);
     });
   }
