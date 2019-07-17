@@ -64,7 +64,7 @@
     });
   }*/
   function testAPI() {
-    FB.api('/me?fields=id,email,name,gender,photos',function(response) {
+    /*FB.api('/me?fields=id,email,name,gender,photos',function(response) {
       console.log('Successful login for: ' + response.name);
       let loginok = document.querySelector('#loginok');
       loginok.innerHTML ="使用者的名字:"+response.name+"</br>"+"使用者的ID:"+response.id+"</br>"+"使用者的email:"+response.email+"</br>"+"使用者的性別:"+response.gender+"</br>"+"<img src = 'https://graph.facebook.com/"+response.id+"/picture?type=large' />";
@@ -73,24 +73,31 @@
 
     FB.api('/me/feed',function(response){
         console.log(response);
-    });
+    });*/
   
-
+   //抓取使用者的管理的粉絲專業//
     FB.api('/me/accounts',function(response){
        console.log(response);
-       let pageToken = response.data[2].access_token;
-       let pageId = response.data[2].id;
-       FB.api("/"+pageId+"/feed?access_token="+pageToken,"POST",{"message":"發財囉"},function(response){
-           console.log(response);
+       pageToken = response.data[2].access_token;
+       pageId = response.data[2].id;
        });
-   });
+   };
+  let pageToken , pageId;
+  function post (){
+      let message = document.querySelector("#message").value;
+      FB.api("/"+pageId+"/feed?access_token="+pageToken,"POST",{message:message},function(response){
+           console.log(response);
+           alert("ok")
+      });
   };
+
 
  
 </script>
 
 <h3 style="text-align: center; color: rgb(11, 31, 216);">Facebook Login</h3>
 <div id="loginin" style="display: none;text-align: center;width: 200px;height: 50px;">
+       Message<input id="message" /><button onclick="post()"></button>
 <button onclick="login()" style="color: aqua; text-align: center; margin: 10px 10px">登入</button>
 </div>
 <div id="loginok" style="display: none;text-align: center;color: burlywood;background-color: chartreuse">歡迎登入</div>
