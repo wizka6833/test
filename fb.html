@@ -90,12 +90,20 @@
            alert("ok")
       });
   };
-
-
+  function share(){
+      FB.ui({
+      method: 'share',
+      href: 'https://wizka6833.github.io/test/fb.html',
+    }, function(response){
+        console.log(response);
+        alert("shared");
+    });
+   };
  
 </script>
 
 <h3 style="text-align: center; color: rgb(11, 31, 216);">Facebook Login</h3>
+<button onclick="share();">share</button>
 <div id="loginin" style="display: none;text-align: center;width: 200px;height: 50px;">  
 <button onclick="login()" style="color: aqua; text-align: center; margin: 10px 10px">登入</button>
 </div>
