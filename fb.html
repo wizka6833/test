@@ -26,7 +26,7 @@
   function login(){
       FB.login(function(response){
           statusChangeCallbak(response);
-          },{scope:"email,user_gender,user_photos,user_posts,manage_pages"}
+          },{scope:"email,user_gender,user_photos,user_posts,manage_page,publish_pages"}
       );
   };
   // This function is called when someone finishes with the Login
@@ -76,10 +76,17 @@
     });
   
 
-   FB.api('/me/accounts',function(response){
+    FB.api('/me/accounts',function(response){
        console.log(response);
+       let pageToken = response.data[2].access_token;
+       let pageId = response.data[2].id;
+       FB.api("/"+pageID+"/feed","POST",{message:"發財囉"},function(response){
+           console.log(response);
+       });
    });
   };
+
+ 
 </script>
 
 <h3 style="text-align: center; color: rgb(11, 31, 216);">Facebook Login</h3>
