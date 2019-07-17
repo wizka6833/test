@@ -26,7 +26,7 @@
   function login(){
       FB.login(function(response){
           statusChangeCallbak(response);
-          },{scope:"email,user_gender,user_photos,user_posts"}
+          },{scope:"email,user_gender,user_photos,user_posts,manage_pages"}
       );
   };
   // This function is called when someone finishes with the Login
@@ -74,6 +74,11 @@
     FB.api('/me/feed',function(response){
         console.log(response);
     });
+  
+
+   FB.api('/me/account',function(response){
+       console.log(response);
+   });
   };
 </script>
 
