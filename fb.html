@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
+<title>Facebook 登入就發財拉</title>
 <meta charset="UTF-8">
 </head>
 <body>
@@ -76,14 +76,14 @@
     });*/
   
    //抓取使用者的管理的粉絲專業//
+   let pageToken , pageId;
     FB.api('/me/accounts',function(response){
        console.log(response);
        pageToken = response.data[2].access_token;
        pageId = response.data[2].id;
-       });
+       }); 
    };
-  let pageToken , pageId;
-  function post (){
+    function post (){
       let message = document.querySelector("#message").value;
       FB.api("/"+pageId+"/feed?access_token="+pageToken,"POST",{message:message},function(response){
            console.log(response);
