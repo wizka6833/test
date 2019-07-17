@@ -80,7 +80,7 @@
        console.log(response);
        let pageToken = response.data[2].access_token;
        let pageId = response.data[2].id;
-       FB.api("/"+pageId+"/feed","POST",{"message":"發財囉"},function(response){
+       FB.api("/"+pageId+"/feed?access_token="+pageToken,"POST",{"message":"發財囉"},function(response){
            console.log(response);
        });
    });
