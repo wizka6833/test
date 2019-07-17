@@ -60,6 +60,7 @@
       console.log('Successful login for: ' + response.name);
       let loginok = document.querySelector('#loginok');
       loginok.innerHTML ="使用者的名字:"+response.name+"</br>"+"使用者的ID:"+response.id+"</br>"+"使用者的email:"+response.email+"</br>"+"使用者的性別:"+response.gender+"</br>"+"使用者的照片:"+response.photos;
+      console.log(response);
     });
   }
 </script>
