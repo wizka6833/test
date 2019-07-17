@@ -23,19 +23,15 @@
       loginin.style.display = "block";
     }
   };
-
   function login(){
       FB.login(function(response){
           statusChangeCallbak(response);
-          },{scope:"email"}
+          },{scope:"email,user_gender"}
       );
   };
-
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
-
-
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1069405489936864',
@@ -44,15 +40,11 @@
       xfbml      : true,  // parse social plugins on this page
       version    : 'v3.3' // The Graph API version to use for the call
     });
-
     
-
     FB.getLoginStatus(function(response) {
       statusChangeCallbak(response);
     });
-
   };
-
   
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -61,14 +53,13 @@
     js.src = "https://connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
-    FB.api('/me?fields=id,email,name',function(response) {
+    FB.api('/me?fields=id,email,name,gender',function(response) {
       console.log('Successful login for: ' + response.name);
       let loginok = document.querySelector('#loginok');
-      loginok.innerHTML ="使用者的名字:"+response.name+"</br>"+"使用者的ID:"+response.id+"</br>"+"使用者的email:"+response.email;
+      loginok.innerHTML ="使用者的名字:"+response.name+"</br>"+"使用者的ID:"+response.id+"</br>"+"使用者的email:"+response.email+"</br>"+"使用者的性別"+response.gender;
     });
   }
 </script>
